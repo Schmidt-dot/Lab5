@@ -83,7 +83,7 @@ void adder(string product, int amt, string address){
     }
 
     if (cell.amt != 0 && product != cell.product) {
-        cout << "Ошибка: Ячейка " << address << "занята товаром" << cell.product;
+        cout << "Ошибка: Ячейка " << address << " занята товаром" << cell.product;
         return;
     }
 
@@ -91,7 +91,7 @@ void adder(string product, int amt, string address){
     cell.amt += amt;    
     cell.product = product;
 
-    cout << "Добавлено " << amt << " " << product << "в ячейку " << address << endl; 
+    cout << "Добавлено " << amt << " " << product << " в ячейку " << address << endl; 
 }
 
 
@@ -112,7 +112,7 @@ void remover(string product, int amt, string address){
     }
 
     if (product != cell.product) {
-        cout << "Ошибка: Товар " << product << "не найден в ячейке" << address;
+        cout << "Ошибка: Товар " << product << " не найден в ячейке " << address;
         return;
     }
 
@@ -122,7 +122,7 @@ void remover(string product, int amt, string address){
         cell.product = "";
     }
 
-    cout << "Удалено " << amt << " " << product << "(остаток: " << cell.amt << ")" << endl;
+    cout << "Удалено " << amt << " " << product << " (остаток: " << cell.amt << ")" << endl;
 }
 
 
