@@ -2,3 +2,5 @@
 *.out
 *.o
 *.obj
+test.cpp
+AppMetro
