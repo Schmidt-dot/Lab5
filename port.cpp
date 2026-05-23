@@ -125,6 +125,37 @@ void arrive(string id, int weight) {
 
 //ВЫГРУЗКА
 void load() {
-    
+    vector<Section> sections(amtSections); //вектор из amt секций
+
+
+    while (!allStacksEmpty()) { 
+
+        for (int i = stacks.size() - 1; i >= 0; i--) { //стек идёт с конца
+
+            if (!stacks[i].empty()) { 
+
+                Container current = stacks[i].top(); //текущий элемент с вершины стека
+
+                stacks[i].pop(); 
+
+                curStackWeights[i] -= current.weight; 
+
+                int bestSection = lightestSection(sections); //найти наиболее свободную секцию
+
+                sections[bestSection].totalWeight += current.weight; //добавить вес контейнера
+
+                sections[bestSection].containers.push_back(current.id); //и его id
+            }
+        }
+    }
+
+    for (int i = 0; i < amtSections; i++) {
+
+        cout << "Секция " << i + 1 << " (" << sections[i].totalWeight << " тонн): ";
+
+        for (const auto& container : sections[i].containers) {
+            cout << container << " ";
+        }
+        cout << endl;
     }
 }
