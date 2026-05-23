@@ -23,9 +23,9 @@ struct Section {
 //ОБЪЯВЛЕНИЕ Ф-ИЙ
 void init(int maxWeight, int sectionCount);
 
-bool isValidId(string id);
+bool isId(string id);
 
-bool canFit(int weight);
+bool isPossible(int weight);
 
 void arrive(string id, int weight);
 
