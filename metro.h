@@ -2,8 +2,12 @@
 
 #include<vector>
 #include<string>
+#include<map>
 
 using namespace std;
+
+//ИНФОРМАЦИЯ О МЕТРО
+map<string, vector<string>> metros;
 
 
 //ФУНКЦИИ

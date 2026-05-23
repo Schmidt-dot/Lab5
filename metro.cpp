@@ -4,6 +4,7 @@
 
 using namespace std;
 
+map<string, vector<string>> metros;
 
 //СОЗДАНИЕ ЛИНИИ
 void createMetro(string line, int N) {
