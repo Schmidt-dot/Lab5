@@ -83,7 +83,7 @@ void adder(string product, int amt, string address){
     }
 
     if (cell.amt != 0 && product != cell.product) {
-        cout << "Ошибка: Ячейка " << address << " занята товаром" << cell.product;
+        cout << "Ошибка: Ячейка " << address << " занята товаром " << cell.product;
         return;
     }
 
