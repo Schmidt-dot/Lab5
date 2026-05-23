@@ -7,7 +7,7 @@
 using namespace std;
 
 //ИНФОРМАЦИЯ О МЕТРО
-map<string, vector<string>> metros;
+extern map<string, vector<string>> metros;
 
 
 //ФУНКЦИИ
