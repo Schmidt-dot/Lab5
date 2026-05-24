@@ -11,10 +11,10 @@ extern map<string, vector<string>> metros;
 
 
 //ФУНКЦИИ
-void createMetro(line, N);
+void createMetro(string line, int N);
 
-void metrosInStop(station);
+void metrosInStop(string station);
 
-void stopsInMetro(line);
+void stopsInMetro(string line);
 
 void allMetros();
