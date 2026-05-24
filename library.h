@@ -1,8 +1,8 @@
 #pragma once
 
-#include<string>
-#include<vector>
-#include<map>
+#include <string>
+#include <vector>
+#include <map>
 
 //ХРАНИЛИЩЕ
 struct Book {
@@ -22,14 +22,13 @@ struct Library {
     std::map<std::string, Reader> readers;
 };
 
+//ФУНКЦИИ
+void adder(Library& library, std::string bookId, std::string name);
 
-//Ф-ИИ
-void adder(std::string bookId, std::string name);
+void borrower(Library& library, std::string bookId, std::string readerId);
 
-void borrower(std::string bookId, std::string readerId);
+void returner(Library& library, std::string bookId);
 
-void returner(std::string bookId);
+void status(Library& library, std::string bookId);
 
-void status(std::string bookId);
-
-void readder(std::string readerId);
+void reader(Library& library, std::string readerId);

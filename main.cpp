@@ -1,120 +1,120 @@
 #include "library.h"
 
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
 
 using namespace std;
 
-enum class commands{
+enum class Commands{
     ADD_BOOK,
     BORROW,
     RETURN,
     BOOK_STATUS,
     READER_BOOKS,
-    EXIT, 
-    UNKNOW
+    EXIT,
+    UNKNOWN
+};
+
+Commands toDo(const string& line){
+
+    if (line == "ADD_BOOK") return Commands::ADD_BOOK;
+    if (line == "BORROW") return Commands::BORROW;
+    if (line == "RETURN") return Commands::RETURN;
+    if (line == "BOOK_STATUS") return Commands::BOOK_STATUS;
+    if (line == "READER_BOOKS") return Commands::READER_BOOKS;
+    if (line == "EXIT") return Commands::EXIT;
+
+    return Commands::UNKNOWN;
 }
 
-
-commands toDo(const &string line){
-    if (line == "ADD_BOOK") return commads::ADD_BOOK;
-    if (line == "BORROW") return commads::BORROW;
-    if (line == "RETURN") return commads::RETURN;
-    if (line == "BOOK_STATUS") return commads::BOOK_STATUS;
-    if (line == "READER_BOOKS") return commads::READER_BOOKS;
-    if (line == "EXIT") return commads::EXIT;
-    return commands::UNKNOW;
-}
-
-
-void choice(commands action){
+void choice(Commands action, Library& library){
 
     switch(action){
 
-        case commads::ADD_BOOK:
+        case Commands::ADD_BOOK:
         {
             string bookId;
             string name;
 
             cin >> bookId >> name;
 
-            adder(bookId, name);
+            adder(library, bookId, name);
+
             break;
         }
 
-
-        case commads::BORROW:
+        case Commands::BORROW:
         {
             string bookId;
             string readerId;
-            
-            cin >> readerId >> readerId;
 
-            borrower(readerId, readerId);
+            cin >> bookId >> readerId;
+
+            borrower(library, bookId, readerId);
+
             break;
         }
 
-        
-        case commads::RETURN:
+        case Commands::RETURN:
         {
             string bookId;
-            
+
             cin >> bookId;
 
-            returner(bookId);
+            returner(library, bookId);
+
             break;
         }
 
-
-        case commads::BOOK_STATUS:
+        case Commands::BOOK_STATUS:
         {
             string bookId;
-            
+
             cin >> bookId;
 
-            status(bookId);
+            status(library, bookId);
+
             break;
         }
 
-
-        case commads::READER_BOOKS:
+        case Commands::READER_BOOKS:
         {
             string readerId;
-            
+
             cin >> readerId;
 
-            readder(readerId);
+            reader(library, readerId);
+
             break;
         }
 
-        
-        case commands::EXIT:
+        case Commands::EXIT:
         {
             exit(0);
-            break;
         }
 
-
-        defualt:
+        default:
         {
             cout << "Попробуйте выбрать снова" << endl;
         }
-
     }
 }
 
-
 int main(){
-    
+
+    Library library;
+
     cout << "Введите действие (для завершения напишите EXIT): " << endl;
 
     string line;
 
     while (true){
+
         cin >> line;
 
-        commands action = toDo(line);
-        choice(action);
+        Commands action = toDo(line);
+
+        choice(action, library);
     }
 
     return 0;
