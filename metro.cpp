@@ -11,11 +11,22 @@ map<string, vector<string>> metros; //линиям соответствует в
 void createMetro(string line, int N) {
 
     if (metros.count(line)) { //проверка существования линии
+        string station;
+
+        for (int i = 0; i < N; ++i) {
+            cin >> station;
+        }
         cout << "Ошибка: Линия метро " << line << " уже существует" << endl;
         return;
     }
 
     if (N < 2) { //минимум 2 станции
+        string station;
+
+        for (int i = 0; i < N; ++i) {
+            cin >> station;
+        }
+
         cout << "Ошибка: Линия метро не может содержать меньше 2 станций" << endl;
         return;
     }

@@ -74,6 +74,7 @@ void choice(commands action) {
         case commands::EXIT:
         {
             exit(0);
+            break;
         }
 
         default:
